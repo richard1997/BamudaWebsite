@@ -1,58 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Bamuda</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<style type="text/css">/* Remove the navbar's default margin-bottom and rounded borders */ 
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
-    
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 450px}
-    
-    /* Set gray background color and 100% height */
-    .sidenav {
-      padding-top: 20px;
-      background-color: #f1f1f1;
-      height: 100%;
-    }
-    
-    /* Set black background color, white text and some padding */
-    footer {
-      background-color: #555;
-      color: white;
-      padding: 15px;
-    }
-    
-    /* On small screens, set height to 'auto' for sidenav and grid */
-    @media screen and (max-width: 767px) {
-      .sidenav {
-        height: auto;
-        padding: 15px;
-      }
-      .row.content {height:auto;} 
-    }
-	</style>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Bamuda – Mobile App Development</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+
+        .row.content {
+            height: 450px;
+        }
+
+        .sidenav {
+            padding-top: 20px;
+            background-color: #f1f1f1;
+            height: 100%;
+        }
+
+        footer {
+            background-color: #555;
+            color: white;
+            padding: 15px;
+        }
+
+        @media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+
+            .row.content {
+                height: auto;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <!-- Logo -->
-                <div class="navbar-header"><a class="navbar-brand" href="home.html">Bamuda Corporation</a></div>
-                <button class="navbar-toggle" data-target="#myNavbar" data-toggle="collapse" type="button"></button><img alt="" src="bamuda logo.png" />
+                <a class="navbar-brand" href="home.html">Bamuda Corporation</a>
+                <button class="navbar-toggle" data-target="#myNavbar" data-toggle="collapse" type="button"></button>
+                <img alt="Bamuda Logo" src="bamuda logo.png" />
             </div>
-
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="home.html">Home</a></li>
-                    <li data-toggle="tooltip" title="About Bamuda"><a href="about.html">About</a></li>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
                     <li><a href="keyPersonnel.html">Key Personnel</a></li>
-                    <li data-toggle="tooltip" title="Contact Bamuda"><a href="mailto:jiarenwu1997@hotmail.com">Contact</a></li>
-                    <!-- New Privacy Policy link -->
+                    <li><a href="mailto:jiarenwu1997@hotmail.com">Contact</a></li>
                     <li><a href="TuneAndTimePrivacy.html">Privacy Policy</a></li>
                 </ul>
             </div>
@@ -63,23 +65,24 @@
         <div class="row content">
             <div class="col-sm-2 sidenav">
                 <p><a href="mobileDev.html">Mobile App Development</a></p>
-
                 <p><a href="cloudComputing.html">Cloud Computing</a></p>
-
                 <p><a href="bigData.html">Big Data</a></p>
 
-                <p></p>
-
                 <h4>Products</h4>
-
-                <p></p>
-
                 <p><a href="./products/geniecharts.html">- Genie Charts</a></p>
+                <p><a href="./products/tuneandtime.html">- TuneAndTime</a></p>
             </div>
 
-            <div style="text-align: left;"><span style="font-size: 16px;">&nbsp;</span></div>
+            <div class="col-sm-10 text-left">
+                <h1>Mobile App Development</h1>
+                <p>Bamuda specialises in designing and developing high‑performance mobile applications for both iOS and Android platforms. Our team combines technical expertise with creative design to deliver apps that are intuitive, scalable, and aligned with client goals.</p>
 
-            <div style="text-align: left;"><span style="font-size:16px;">Coming Soon.</span></div>
+                <p>We use native technologies such as Swift/UIKit for iOS and Kotlin/XML for Android to ensure optimal performance and seamless user experiences. Our development process includes thorough research, prototyping, and iterative refinement to guarantee quality and usability.</p>
+
+                <p>From concept to launch, Bamuda provides end‑to‑end mobile solutions, including backend integration, subscription and monetisation workflows, and ongoing support. We focus on clarity, polish, and workflow efficiency to make apps that delight users and stand out in the marketplace.</p>
+
+                <p>Our portfolio includes innovative utility apps like <em>TuneAndTime</em>, designed to help musicians practice with confidence, alongside enterprise and consumer solutions tailored to diverse industries.</p>
+            </div>
         </div>
     </div>
 

@@ -1,58 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Bamuda</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<style type="text/css">/* Remove the navbar's default margin-bottom and rounded borders */ 
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
-    
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 450px}
-    
-    /* Set gray background color and 100% height */
-    .sidenav {
-      padding-top: 20px;
-      background-color: #f1f1f1;
-      height: 100%;
-    }
-    
-    /* Set black background color, white text and some padding */
-    footer {
-      background-color: #555;
-      color: white;
-      padding: 15px;
-    }
-    
-    /* On small screens, set height to 'auto' for sidenav and grid */
-    @media screen and (max-width: 767px) {
-      .sidenav {
-        height: auto;
-        padding: 15px;
-      }
-      .row.content {height:auto;} 
-    }
-	</style>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Bamuda – Key Personnel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+
+        .row.content {
+            height: 450px;
+        }
+
+        .sidenav {
+            padding-top: 20px;
+            background-color: #f1f1f1;
+            height: 100%;
+        }
+
+        footer {
+            background-color: #555;
+            color: white;
+            padding: 15px;
+        }
+
+        @media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+
+            .row.content {
+                height: auto;
+            }
+        }
+
+        .profile {
+            margin-bottom: 20px;
+        }
+
+            .profile h3 {
+                margin-top: 0;
+            }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <!-- Logo -->
-                <div class="navbar-header"><a class="navbar-brand" href="#">Bamuda Corporation</a></div>
-                <button class="navbar-toggle" data-target="#myNavbar" data-toggle="collapse" type="button"></button><img alt="" src="bamuda logo.png" />
+                <a class="navbar-brand" href="home.html">Bamuda Corporation</a>
+                <button class="navbar-toggle" data-target="#myNavbar" data-toggle="collapse" type="button"></button>
+                <img alt="Bamuda Logo" src="bamuda logo.png" />
             </div>
-
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li><a href="home.html">Home</a></li>
-                    <li data-toggle="tooltip" title="About Bamuda"><a href="about.html">About</a></li>
+                    <li><a href="about.html">About</a></li>
                     <li class="active"><a href="keyPersonnel.html">Key Personnel</a></li>
-                    <li data-toggle="tooltip" title="Contact Bamuda"><a href="mailto:jiarenwu1997@hotmail.com">Contact</a></li>
-                    <!-- New Privacy Policy link -->
+                    <li><a href="mailto:jiarenwu1997@hotmail.com">Contact</a></li>
                     <li><a href="TuneAndTimePrivacy.html">Privacy Policy</a></li>
                 </ul>
             </div>
@@ -63,48 +73,36 @@
         <div class="row content">
             <div class="col-sm-2 sidenav">
                 <p><a href="mobileDev.html">Mobile Developer</a></p>
-
                 <p><a href="cloudComputing.html">Cloud Computing</a></p>
-
                 <p><a href="bigData.html">Big Data</a></p>
 
-                <p></p>
-
                 <h4>Products</h4>
-
-                <p></p>
-
                 <p><a href="./products/geniecharts.html">- Genie Charts</a></p>
+                <p><a href="./products/tuneandtime.html">- TuneAndTime</a></p>
             </div>
 
             <div class="col-sm-10 text-left">
                 <h1>Key Personnel</h1>
 
-                <p>Callan Wu (CEO)</p>
+                <div class="profile">
+                    <h3>Callan Wu – Chief Executive Officer (CEO)</h3>
+                    <p>Over 30 years of experience as a software developer in Sydney, Australia. Provides strategic leadership and vision for Bamuda Corporation.</p>
+                </div>
 
-                <p>30 years experience as a software developer in Sydney, Australia.</p>
+                <div class="profile">
+                    <h3>Rena Ding, PhD – Project Manager</h3>
+                    <p>Brings 30 years of experience across academia and the defence industry. Oversees project delivery, ensuring quality and timely outcomes.</p>
+                </div>
 
-                <p></p>
+                <div class="profile">
+                    <h3>Jun Liang – Business Analyst</h3>
+                    <p>15 years of experience in the financial markets. Specialises in requirements analysis, market insights, and aligning solutions with business goals.</p>
+                </div>
 
-                <p>Rena Ding Phd (Project Manager)</p>
-
-                <p>30 years experience including academia and&nbsp;the defence industry.</p>
-
-                <p></p>
-
-                <p>Jun Liang (Business Analyst)</p>
-
-                <p>15 years experience in Financial Market.</p>
-
-                <p>
-
-                </p>
-
-                <p>Lachlan Groenveld (CTO)</p>
-
-                <p>30 years experience as a software developer.</p>
-
-                <p></p>
+                <div class="profile">
+                    <h3>Lachlan Groenveld – Chief Technology Officer (CTO)</h3>
+                    <p>Over 30 years of experience as a software developer. Leads technology strategy, architecture, and innovation across Bamuda’s product portfolio.</p>
+                </div>
             </div>
         </div>
     </div>
