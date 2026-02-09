@@ -7,6 +7,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <style type="text/css">
         .navbar {
             margin-bottom: 0;
@@ -14,7 +15,7 @@
         }
 
         .row.content {
-            height: 450px;
+            height: auto;
         }
 
         .sidenav {
@@ -29,18 +30,20 @@
             padding: 15px;
         }
 
+        .feature-icon {
+            font-size: 18px;
+            margin-right: 6px;
+        }
+
         @media screen and (max-width: 767px) {
             .sidenav {
                 height: auto;
                 padding: 15px;
             }
-
-            .row.content {
-                height: auto;
-            }
         }
     </style>
 </head>
+
 <body>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
@@ -49,6 +52,7 @@
                 <button class="navbar-toggle" data-target="#myNavbar" data-toggle="collapse" type="button"></button>
                 <img alt="Bamuda Logo" src="../bamuda logo.png" />
             </div>
+
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="../home.html">Home</a></li>
@@ -63,6 +67,7 @@
 
     <div class="container-fluid text-center">
         <div class="row content">
+
             <div class="col-sm-2 sidenav">
                 <p><a href="../mobileDev.html">Mobile Developer</a></p>
                 <p><a href="../cloudComputing.html">Cloud Computing</a></p>
@@ -78,35 +83,44 @@
 
                 <h3>Current Features</h3>
                 <ul>
-                    <li><strong>Precision Tuner</strong> – Fast, accurate pitch detection for all instruments.</li>
-                    <li><strong>Metronome</strong> – Adjustable tempo, time signatures, and sound options.</li>
-                    <li><strong>All Scales Trainer</strong> – Major, minor, and advanced scale patterns with playback.</li>
-                    <li><strong>Degree Trainer</strong> – Learn scale degrees and strengthen tonal awareness.</li>
-                    <li><strong>Modes Explorer</strong> – Ionian to Locrian with note patterns and audio examples.</li>
-                    <li><strong>Chord Construction</strong> – Build chords, view intervals, and hear voicings instantly.</li>
-                    <li><strong>Circle of Fifths</strong> – Understand key relationships and harmonic movement.</li>
-                    <li><strong>Ear Trainer</strong> – Interval, chord, and melodic recognition exercises.</li>
+                    <li><span class="feature-icon">🎯</span><strong>Precision Tuner</strong> – Fast, accurate pitch detection for all instruments.</li>
+                    <li><span class="feature-icon">⏱️</span><strong>Metronome</strong> – Adjustable tempo, time signatures, and sound options.</li>
+                    <li><span class="feature-icon">🎼</span><strong>All Scales Trainer</strong> – Major, minor, and advanced scale patterns with playback.</li>
+                    <li><span class="feature-icon">🔢</span><strong>Degree Trainer</strong> – Learn scale degrees and strengthen tonal awareness.</li>
+                    <li><span class="feature-icon">🌈</span><strong>Modes Explorer</strong> – Ionian to Locrian with note patterns and audio examples.</li>
+                    <li><span class="feature-icon">🎹</span><strong>Chord Construction</strong> – Build chords, view intervals, and hear voicings instantly.</li>
+                    <li><span class="feature-icon">🌀</span><strong>Circle of Fifths</strong> – Understand key relationships and harmonic movement.</li>
+                    <li><span class="feature-icon">👂</span><strong>Ear Trainer</strong> – Interval, chord, and melodic recognition exercises.</li>
                 </ul>
 
                 <h3>Demo Video</h3>
-                <p>Watch a short demonstration of TuneAndTime in action:</p>
+                <div class="embed-responsive embed-responsive-16by9" style="max-width:600px;">
+                    <iframe class="embed-responsive-item"
+                            src="https://www.youtube.com/embed/766Z_tLDRzA"
+                            allowfullscreen></iframe>
+                </div>
+
+                <h3 style="margin-top:25px;">Download</h3>
                 <p>
-                    <a href="https://youtube.com/shorts/766Z_tLDRzA?feature=share" target="_blank">
-                        TuneAndTime: Music Tools – YouTube Demo
+                    <a href="https://play.google.com/store/apps/details?id=com.bamuda.tuneandtime&pli=1" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                             alt="Get it on Google Play" style="height:60px;">
                     </a>
                 </p>
 
-                <h3>Future Expansion</h3>
-                <p>We’re continuing to grow TuneAndTime into a complete musician’s toolkit, supporting practice, performance, and creativity across all instruments and skill levels.</p>
+                <p>
+                    <a href="https://apps.apple.com/ie/app/tuneandtime-music-tools/id6755568540" target="_blank">
+                        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                             alt="Download on the App Store" style="height:60px;">
+                    </a>
+                </p>
 
                 <h3>Why Choose TuneAndTime</h3>
                 <ul>
                     <li>Simple, intuitive design for fast access during practice.</li>
                     <li>Reliable accuracy across tuning, timing, and theory tools.</li>
-                    <li>Built to evolve with your musical journey from beginner to advanced.</li>
+                    <li>Built to support your musical journey from beginner to advanced.</li>
                 </ul>
-
-                <p><em>Available soon on the App Store and Google Play.</em></p>
             </div>
         </div>
     </div>
