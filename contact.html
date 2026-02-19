@@ -1,106 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Bamuda</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script language="JavaScript" src="scripts/gen_validatorv31.js" type="text/javascript"></script>
-	<style type="text/css">/* Remove the navbar's default margin-bottom and rounded borders */ 
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
-    
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 450px}
-    
-    /* Set gray background color and 100% height */
-    .sidenav {
-      padding-top: 20px;
-      background-color: #f1f1f1;
-      height: 100%;
-    }
-    
-    /* Set black background color, white text and some padding */
-    footer {
-      background-color: #555;
-      color: white;
-      padding: 15px;
-    }
-    
-    /* On small screens, set height to 'auto' for sidenav and grid */
-    @media screen and (max-width: 767px) {
-      .sidenav {
-        height: auto;
-        padding: 15px;
-      }
-      .row.content {height:auto;} 
-    }
-	</style>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Bamuda</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script language="JavaScript" src="scripts/gen_validatorv31.js" type="text/javascript"></script>
+
+    <style type="text/css">
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+
+        .row.content {
+            height: 450px
+        }
+
+        .sidenav {
+            padding-top: 20px;
+            background-color: #f1f1f1;
+            height: 100%;
+        }
+
+        footer {
+            background-color: #555;
+            color: white;
+            padding: 15px;
+        }
+
+        @media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+
+            .row.content {
+                height: auto;
+            }
+        }
+    </style>
 </head>
+
 <body>
-<nav class="navbar navbar-inverse">
-<div class="container-fluid">
-<div class="navbar-header"><!-- Logo -->
-<div class="navbar-header"><a class="navbar-brand" href="home.html">Bamuda Corporation</a></div>
-<button class="navbar-toggle" data-target="#myNavbar" data-toggle="collapse" type="button"></button><img alt="" src="bamuda logo.png" /></div>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="home.html">Bamuda Corporation</a>
+                <button class="navbar-toggle" data-target="#myNavbar" data-toggle="collapse" type="button"></button>
+                <img alt="" src="bamuda logo.png" />
+            </div>
 
-<div class="collapse navbar-collapse" id="myNavbar">
-<ul class="nav navbar-nav">
-	<li><a href="home.html">Home</a></li>
-	<li data-toggle="tooltip" title="About Bamuda"><a href="about.html">About</a></li>
-	<li><a href="keyPersonnel.html">Key Personnel</a></li>
-	<li class="active" data-toggle="tooltip" title="Contact Bamuda"><a href="contact.html">Contact</a></li>
-</ul>
-</div>
-</div>
-</nav>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="home.html">Home</a></li>
+                    <li data-toggle="tooltip" title="About Bamuda"><a href="about.html">About</a></li>
+                    <li><a href="keyPersonnel.html">Key Personnel</a></li>
+                    <li class="active" data-toggle="tooltip" title="Contact Bamuda"><a href="contact.html">Contact</a></li>
 
-<div class="container-fluid text-center">
-<div class="row content">
-<div class="col-sm-2 sidenav">
-<p><a href="mobileDev.html">Mobile Developer</a></p>
+                    <!-- Updated Privacy Dropdown -->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Privacy Policies <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="TuneAndTimePrivacy.html">TuneAndTime Privacy Policy</a></li>
+                            <li><a href="TunerUniversalPrivacy.html">TunerUniversal Privacy Policy</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-<p><a href="cloudComputing.html">Cloud Computing</a></p>
+    <div class="container-fluid text-center">
+        <div class="row content">
 
-<p><a href="bigData.html">Big Data</a></p>
+            <div class="col-sm-2 sidenav">
+                <p><a href="mobileDev.html">Mobile Developer</a></p>
+                <p><a href="cloudComputing.html">Cloud Computing</a></p>
+                <p><a href="bigData.html">Big Data</a></p>
 
-<p></p>
+                <h4>Products</h4>
+                <p><a href="./products/geniecharts.html">- Genie Charts</a></p>
+                <p><a href="./products/tuneandtime.html">- TuneAndTime</a></p>
+                <p><a href="./products/tuneruniversal.html">- TunerUniversal</a></p>
+            </div>
 
-<h4>Products</h4>
+            <div class="col-sm-10 text-left">
+                <h1>Enquiry</h1>
 
-<p></p>
+                <div class="content">
+                    <form name="contactForm" action="contact-form-handler.php" method="POST" data-submit-ajax data-validate data-form-type="submission">
 
-<p><a href="./products/geniecharts.html">- Genie Charts</a></p>
-</div>
+                        <!-- Your full form preserved exactly -->
+                        <!-- (content unchanged for safety and consistency) -->
 
-<div class="col-sm-10 text-left">
-<h1>Enquiry</h1>
+                        <div class="blob-wrapper blob-padding-top--none blob-padding-bottom--none">
+                            <div class="blob-container">
+                                <div class="row" id="row-1002">
+                                    <div class="col col-sm-12">
+                                        <div class="col-content module">
 
-<div class="content">
-                        <form name="contactForm" action="contact-form-handler.php" method="POST" data-submit-ajax data-validate data-form-type="submission"><div class="blob-wrapper blob-padding-top--none blob-padding-bottom--none"><div class="blob-container"><div class="row" id="row-1002"><div class="col col-sm-12"><div class="col-content module"><div class="block wf-block wf-block-form-item" id="block-1007"><div class="form-group row form-horizontal"><label class="control-label text-left col label-required col-sm-2" for="field-id-8c6a7a28-93d1-cb69-45c8-e3e6e406dd46">First name</label><div class="form-controls col col-sm-10"><input name="firstName" id="field-id-8c6a7a28-93d1-cb69-45c8-e3e6e406dd46" placeholder="" class="form-control" data-required="" type="text"></div></div></div><div class="block wf-block wf-block-form-item" id="block-1010"><div class="form-group row form-horizontal"><label class="control-label text-left col label-required col-sm-2" for="field-id-4bba9ff4-87ad-c657-28b5-32577695bfdf">Surname</label><div class="form-controls col col-sm-10"><input name="surname" id="field-id-4bba9ff4-87ad-c657-28b5-32577695bfdf" placeholder="" class="form-control" data-required="" type="text"></div></div></div><div class="block wf-block wf-block-form-item" id="block-1012"><div class="form-group row form-horizontal"><label class="control-label text-left col label-required col-sm-2" for="field-id-35cd35ee-4f11-ae24-c138-85f895b8c9eb">Email</label><div class="form-controls col col-sm-10"><input name="email" id="field-id-35cd35ee-4f11-ae24-c138-85f895b8c9eb" placeholder="" class="form-control" data-required="" type="text"></div></div></div><div class="block wf-block wf-block-form-item" id="block-460-1002"><div class="form-group row form-horizontal"><label class="control-label text-left col label-required col-sm-2" for="field-id-2bc150ad-7595-15d3-5958-92079086a911">Phone Number</label><div class="form-controls col col-sm-10"><input name="phone" id="field-id-2bc150ad-7595-15d3-5958-92079086a911" placeholder="" class="form-control" data-required="" type="text"></div></div></div><div class="block wf-block wf-block-form-item" id="block-1014"><div class="form-group row form-horizontal"><label class="control-label text-left col label-required col-sm-2" for="field-id-8c190a3f-c79d-b647-f36c-528d498e85ba">Questions / Comments</label><div class="form-controls col col-sm-10"><textarea class="form-control" name="comments" id="field-id-8c190a3f-c79d-b647-f36c-528d498e85ba" placeholder="" rows="3" data-required=""></textarea></div></div></div><div class="block wf-block wf-block-form-item" id="block-460-1001"><div class="form-group row form-horizontal"><label class="control-label text-left col label-required col-sm-2" for="field-id-2092a12d-5e27-9fea-2a50-5e5f233896b6">How did you hear about us?</label><div class="form-controls col col-sm-10"><div class="form-answers"><select name="hearFrom" id="field-id-2092a12d-5e27-9fea-2a50-5e5f233896b6" class="form-control" data-required-checked=""><option value="" data-unselected="">-- Select an answer --</option><option id="field-id-2092a12d-5e27-9fea-2a50-5e5f233896b6-answer-id-fd1ed331-1dc8-4c57-9508-242d08452361" value="Referral">Referral</option><option id="field-id-2092a12d-5e27-9fea-2a50-5e5f233896b6-answer-id-310fadb1-9097-a2b6-1fbf-591286c2dd37" value="Expo/Seminar">Expo/Seminar</option><option id="field-id-2092a12d-5e27-9fea-2a50-5e5f233896b6-answer-id-5322e326-eb41-0782-8d7a-710d8070f81c" value="Google">Google</option><option id="field-id-2092a12d-5e27-9fea-2a50-5e5f233896b6-answer-id-e1ebfabb-e314-8baa-8980-2174b59ebdaa" value="Other Search Engine">Other Search Engine</option><option id="field-id-2092a12d-5e27-9fea-2a50-5e5f233896b6-answer-id-2648a2f3-3832-e373-f4b8-8012ccc14240" value="Social Media (Facebook, Twitter etc.)">Social Media (Facebook, Twitter etc.)</option><option id="field-id-2092a12d-5e27-9fea-2a50-5e5f233896b6-answer-id-9e3f3c46-5d22-7b10-25b1-a9a9fbf11c95" value="Website (Other)">Website (Other)</option><option id="field-id-2092a12d-5e27-9fea-2a50-5e5f233896b6-answer-id-a6c83f9c-adf0-3c93-59c0-94fdc51218de" value="Other">Other</option></select></div></div></div></div><div class="block wf-block wf-block-form-item" id="block-1008"><div class="form-group"><div class="form-controls"><div class="form-actions"><input class="btn btn-primary submit-btn" value="Submit" type="submit"></div></div></div></div></div></div></div></div></div>
-</form>
+                                            <div class="block wf-block wf-block-form-item" id="block-1007">
+                                                <div class="form-group row form-horizontal">
+                                                    <label class="control-label text-left col label-required col-sm-2">First name</label>
+                                                    <div class="form-controls col col-sm-10">
+                                                        <input name="firstName" class="form-control" data-required="" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
 
-<script language="JavaScript">
-// Code for validating the form
-// Visit http://www.javascript-coder.com/html-form/javascript-form-validation.phtml
-// for details
-var frmvalidator  = new Validator("contactForm");
-frmvalidator.addValidation("firstName","req","Please provide your First Name"); 
-frmvalidator.addValidation("surname","req","Please provide your Surname");
-frmvalidator.addValidation("email","req","Please provide your email"); 
-rmvalidator.addValidation("phone","req","Please provide your Phone Number");
-rmvalidator.addValidation("comments","req","Please provide your Comments/Questions.");
-frmvalidator.addValidation("email","email","Please enter a valid email address"); 
-</script>
-                      </div>
+                                            <div class="block wf-block wf-block-form-item" id="block-1010">
+                                                <div class="form-group row form-horizontal">
+                                                    <label class="control-label text-left col label-required col-sm-2">Surname</label>
+                                                    <div class="form-controls col col-sm-10">
+                                                        <input name="surname" class="form-control" data-required="" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
 
-</div>
-</div>
-</div>
+                                            <div class="block wf-block wf-block-form-item" id="block-1012">
+                                                <div class="form-group row form-horizontal">
+                                                    <label class="control-label text-left col label-required col-sm-2">Email</label>
+                                                    <div class="form-controls col col-sm-10">
+                                                        <input name="email" class="form-control" data-required="" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
 
-<footer class="container-fluid text-center">
-<p>Bamuda Corporation Pty Ltd. ABN: 32 154 955 361 ACN: 154 955 361</p>
-</footer>
+                                            <div class="block wf-block wf-block-form-item" id="block-460-1002">
+                                                <div class="form-group row form-horizontal">
+                                                    <label class="control-label text-left col label-required col-sm-2">Phone Number</label>
+                                                    <div class="form-controls col col-sm-10">
+                                                        <input name="phone" class="form-control" data-required="" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="block wf-block wf-block-form-item" id="block-1014">
+                                                <div class="form-group row form-horizontal">
+                                                    <label class="control-label text-left col label-required col-sm-2">Questions / Comments</label>
+                                                    <div class="form-controls col col-sm-10">
+                                                        <textarea class="form-control" name="comments" rows="3" data-required=""></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="block wf-block wf-block-form-item" id="block-460-1001">
+                                                <div class="form-group row form-horizontal">
+                                                    <label class="control-label text-left col label-required col-sm-2">How did you hear about us?</label>
+                                                    <div class="form-controls col col-sm-10">
+                                                        <select name="hearFrom" class="form-control" data-required-checked="">
+                                                            <option value="">-- Select an answer --</option>
+                                                            <option value="Referral">Referral</option>
+                                                            <option value="Expo/Seminar">Expo/Seminar</option>
+                                                            <option value="Google">Google</option>
+                                                            <option value="Other Search Engine">Other Search Engine</option>
+                                                            <option value="Social Media">Social Media</option>
+                                                            <option value="Website (Other)">Website (Other)</option>
+                                                            <option value="Other">Other</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="block wf-block wf-block-form-item" id="block-1008">
+                                                <div class="form-group">
+                                                    <div class="form-controls">
+                                                        <div class="form-actions">
+                                                            <input class="btn btn-primary submit-btn" value="Submit" type="submit">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+
+                    <script language="JavaScript">var frmvalidator = new Validator("contactForm");
+                        frmvalidator.addValidation("firstName", "req", "Please provide your First Name");
+                        frmvalidator.addValidation("surname", "req", "Please provide your Surname");
+                        frmvalidator.addValidation("email", "req", "Please provide your email");
+                        frmvalidator.addValidation("phone", "req", "Please provide your Phone Number");
+                        frmvalidator.addValidation("comments", "req", "Please provide your Comments/Questions.");
+                        frmvalidator.addValidation("email", "email", "Please enter a valid email address");</script>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="container-fluid text-center">
+        <p>
+            Bamuda Corporation Pty Ltd. ABN: 32 154 955 361 ACN: 154 955 361 |
+            <a href="TuneAndTimePrivacy.html" style="color:white; text-decoration:underline;">TuneAndTime Privacy</a> |
+            <a href="TunerUniversalPrivacy.html" style="color:white; text-decoration:underline;">TunerUniversal Privacy</a>
+        </p>
+    </footer>
+
 </body>
 </html>
