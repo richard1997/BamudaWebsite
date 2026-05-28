@@ -1,71 +1,96 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Offer Codes</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 600px;
-      margin: 40px auto;
-      padding: 20px;
-      line-height: 1.6;
-    }
-    .code-box {
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      margin-bottom: 12px;
-      background: #f9f9f9;
-      font-size: 18px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Offer Codes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .code-box {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            background: #f9f9f9;
+            font-size: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        button {
+            padding: 6px 12px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 
-<h2>Available Offer Codes</h2>
-<div id="codes">Loading…</div>
+    <h2>Available Offer Codes</h2>
+    <div id="codes">Loading…</div>
 
-<script type="module">
-  import { createClient } from "https://esm.sh/@supabase/supabase-js";
+    <script type="module">import { createClient } from "https://esm.sh/@supabase/supabase-js";
 
-  const db = createClient(
-    "https://cacsrtztwqghqghptije.supabase.co",
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNhY3NydHp0d3FnaHFnaHB0aWplIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk5NTQ2MzEsImV4cCI6MjA5NTUzMDYzMX0.2tmydkVxYDuROELojObooEvsxSIb2PjSqiFl57gsROw"
-  );
+        // PUBLIC anon key (read-only)
+        const db = createClient(
+            "https://cacsrtztwqghqghptije.supabase.co",
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNhY3NydHp0d3FnaHFnaHB0aWplIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk5NTQ2MzEsImV4cCI6MjA5NTUzMDYzMX0.2tmydkVxYDuROELojObooEvsxSIb2PjSqiFl57gsROw"
+        );
 
-  async function loadCodes() {
-    const container = document.getElementById("codes");
+        async function loadCodes() {
+            const container = document.getElementById("codes");
 
-    const { data, error } = await db
-      .from("offer_codes")
-      .select("*")
-      .eq("app", "FlashcardsPro")
-      .eq("visible", true)
-      .eq("used", false);
+            const { data, error } = await db
+                .from("offer_codes")
+                .select("*")
+                .eq("app", "FlashcardsPro")
+                .eq("visible", true)
+                .eq("used", false);
 
-    if (error) {
-      container.textContent = "Error loading codes.";
-      return;
-    }
+            if (error) {
+                container.textContent = "Error loading codes.";
+                return;
+            }
 
-    if (!data || data.length === 0) {
-      container.textContent = "No codes available.";
-      return;
-    }
+            if (!data || data.length === 0) {
+                container.textContent = "No codes available.";
+                return;
+            }
 
-    container.innerHTML = "";
+            container.innerHTML = "";
 
-    data.forEach(item => {
-      const div = document.createElement("div");
-      div.className = "code-box";
-      div.textContent = item.code;
-      container.appendChild(div);
-    });
-  }
+            data.forEach(item => {
+                const div = document.createElement("div");
+                div.className = "code-box";
 
-  loadCodes();
-</script>
+                const codeText = document.createElement("span");
+                codeText.textContent = item.code;
+
+                const btn = document.createElement("button");
+                btn.textContent = "Download";
+                btn.onclick = () => downloadCode(item.code);
+
+                div.appendChild(codeText);
+                div.appendChild(btn);
+                container.appendChild(div);
+            });
+        }
+
+        function downloadCode(code) {
+            // Show the code to the user
+            alert("Your code: " + code);
+
+            // Optionally copy to clipboard
+            navigator.clipboard.writeText(code).catch(() => { });
+        }
+
+        loadCodes();</script>
 
 </body>
 </html>
