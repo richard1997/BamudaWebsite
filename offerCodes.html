@@ -74,7 +74,7 @@
 
                 const btn = document.createElement("button");
                 btn.textContent = "Download";
-                btn.onclick = () => downloadCode(item.code);
+                btn.onclick = () => downloadCode(item.id, item.code);
 
                 div.appendChild(codeText);
                 div.appendChild(btn);
@@ -82,12 +82,22 @@
             });
         }
 
-        function downloadCode(code) {
-            // Show the code to the user
+        async function downloadCode(id, code) {
+            // Show the code
             alert("Your code: " + code);
 
-            // Optionally copy to clipboard
+            // Copy to clipboard
             navigator.clipboard.writeText(code).catch(() => { });
+
+            // Call your Edge Function to mark used
+            await fetch("https://cacsrtztwqghqghptije.supabase.co/functions/v1/mark-used", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ id })
+            });
+
+            // Reload list
+            loadCodes();
         }
 
         loadCodes();</script>
