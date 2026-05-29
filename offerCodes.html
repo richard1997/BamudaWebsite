@@ -49,7 +49,7 @@
             const { data, error } = await db
                 .from("offer_codes")
                 .select("*")
-                .eq("app", "FlashcardsPro")
+                .eq("app", "rhythm")
                 .eq("visible", true)
                 .eq("used", false);
 
