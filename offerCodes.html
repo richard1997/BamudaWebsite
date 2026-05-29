@@ -83,21 +83,29 @@
         }
 
         async function downloadCode(id, code) {
-            // Show the code
-            alert("Your code: " + code);
+            try {
+                // Call Edge Function FIRST to mark as used
+                const response = await fetch("https://cacsrtztwqghqghptije.supabase.co/functions/v1/mark-used", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ id })
+                });
 
-            // Copy to clipboard
-            navigator.clipboard.writeText(code).catch(() => { });
+                if (!response.ok) {
+                    const error = await response.text();
+                    throw new Error(`Server error: ${error}`);
+                }
 
-            // Call your Edge Function to mark used
-            await fetch("https://cacsrtztwqghqghptije.supabase.co/functions/v1/mark-used", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ id })
-            });
+                // Only show code if successfully marked as used
+                alert("Your code: " + code);
+                navigator.clipboard.writeText(code).catch(() => console.log("Clipboard copy failed"));
 
-            // Reload list
-            loadCodes();
+                // Reload list
+                loadCodes();
+            } catch (error) {
+                console.error("Error:", error);
+                alert("Failed to claim code. Please try again.");
+            }
         }
 
         loadCodes();</script>
