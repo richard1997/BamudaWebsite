@@ -32,83 +32,102 @@
 </head>
 <body>
 
-    <h2>Available Offer Codes - Rhythm</h2>
+    <h2 id="title">Available Offer Codes</h2>
     <div id="codes">Loading…</div>
 
-    <script type="module">import { createClient } from "https://esm.sh/@supabase/supabase-js";
+    <script type="module">
+    import { createClient } from "https://esm.sh/@supabase/supabase-js";
 
-        // PUBLIC anon key (read-only)
-        const db = createClient(
-            "https://cacsrtztwqghqghptije.supabase.co",
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNhY3NydHp0d3FnaHFnaHB0aWplIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk5NTQ2MzEsImV4cCI6MjA5NTUzMDYzMX0.2tmydkVxYDuROELojObooEvsxSIb2PjSqiFl57gsROw"
-        );
+    // PUBLIC anon key (read-only)
+    const db = createClient(
+        "https://cacsrtztwqghqghptije.supabase.co",
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNhY3NydHp0d3FnaHFnaHB0aWplIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk5NTQ2MzEsImV4cCI6MjA5NTUzMDYzMX0.2tmydkVxYDuROELojObooEvsxSIb2PjSqiFl57gsROw"
+    );
 
-        async function loadCodes() {
-            const container = document.getElementById("codes");
+    // Read ?app=xxx from URL
+    const params = new URLSearchParams(window.location.search);
+    const appName = params.get("app");
 
-            const { data, error } = await db
-                .from("offer_codes")
-                .select("*")
-                .eq("app", "rhythm")
-                .eq("visible", true)
-                .eq("used", false);
+    // Update title dynamically
+    const titleEl = document.getElementById("title");
+    if (appName) {
+        titleEl.textContent = `Available Offer Codes – ${appName}`;
+    } else {
+        titleEl.textContent = "Available Offer Codes";
+    }
 
-            if (error) {
-                container.textContent = "Error loading codes.";
-                return;
-            }
+    async function loadCodes() {
+        const container = document.getElementById("codes");
 
-            if (!data || data.length === 0) {
-                container.textContent = "No codes available.";
-                return;
-            }
-
-            container.innerHTML = "";
-
-            data.forEach(item => {
-                const div = document.createElement("div");
-                div.className = "code-box";
-
-                const codeText = document.createElement("span");
-                codeText.textContent = item.code;
-
-                const btn = document.createElement("button");
-                btn.textContent = "Download";
-                btn.onclick = () => downloadCode(item.id, item.code);
-
-                div.appendChild(codeText);
-                div.appendChild(btn);
-                container.appendChild(div);
-            });
+        if (!appName) {
+            container.textContent = "No app specified. Add ?app=yourAppName to the URL.";
+            return;
         }
 
-        async function downloadCode(id, code) {
-            try {
-                // Call Edge Function FIRST to mark as used
-                const response = await fetch("https://cacsrtztwqghqghptije.supabase.co/functions/v1/mark-used", {
+        const { data, error } = await db
+            .from("offer_codes")
+            .select("*")
+            .eq("app", appName)
+            .eq("visible", true)
+            .eq("used", false);
+
+        if (error) {
+            container.textContent = "Error loading codes.";
+            return;
+        }
+
+        if (!data || data.length === 0) {
+            container.textContent = "No codes available.";
+            return;
+        }
+
+        container.innerHTML = "";
+
+        data.forEach(item => {
+            const div = document.createElement("div");
+            div.className = "code-box";
+
+            const codeText = document.createElement("span");
+            codeText.textContent = item.code;
+
+            const btn = document.createElement("button");
+            btn.textContent = "Download";
+            btn.onclick = () => downloadCode(item.id, item.code);
+
+            div.appendChild(codeText);
+            div.appendChild(btn);
+            container.appendChild(div);
+        });
+    }
+
+    async function downloadCode(id, code) {
+        try {
+            const response = await fetch(
+                "https://cacsrtztwqghqghptije.supabase.co/functions/v1/mark-used",
+                {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ id })
-                });
-
-                if (!response.ok) {
-                    const error = await response.text();
-                    throw new Error(`Server error: ${error}`);
                 }
+            );
 
-                // Only show code if successfully marked as used
-                alert("Your code: " + code);
-                navigator.clipboard.writeText(code).catch(() => console.log("Clipboard copy failed"));
-
-                // Reload list
-                loadCodes();
-            } catch (error) {
-                console.error("Error:", error);
-                alert("Failed to claim code. Please try again.");
+            if (!response.ok) {
+                const error = await response.text();
+                throw new Error(`Server error: ${error}`);
             }
-        }
 
-        loadCodes();</script>
+            alert("Your code: " + code);
+            navigator.clipboard.writeText(code).catch(() => console.log("Clipboard copy failed"));
+
+            loadCodes();
+        } catch (error) {
+            console.error("Error:", error);
+            alert("Failed to claim code. Please try again.");
+        }
+    }
+
+    loadCodes();
+    </script>
 
 </body>
 </html>
