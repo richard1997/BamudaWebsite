@@ -28,106 +28,138 @@
             padding: 6px 12px;
             cursor: pointer;
         }
+
+        /* Platform selector */
+        .platform-select {
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
 
     <h2 id="title">Available Offer Codes</h2>
+
+    <!-- ⭐ Platform selector -->
+    <div class="platform-select">
+        <label>
+            <input type="radio" name="platform" value="ios" checked>
+            iOS
+        </label>
+        &nbsp;&nbsp;
+        <label>
+            <input type="radio" name="platform" value="android">
+            Android
+        </label>
+    </div>
+
     <div id="codes">Loading…</div>
 
-    <script type="module">
-    import { createClient } from "https://esm.sh/@supabase/supabase-js";
+    <script type="module">import { createClient } from "https://esm.sh/@supabase/supabase-js";
 
-    // PUBLIC anon key (read-only)
-    const db = createClient(
-        "https://cacsrtztwqghqghptije.supabase.co",
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNhY3NydHp0d3FnaHFnaHB0aWplIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk5NTQ2MzEsImV4cCI6MjA5NTUzMDYzMX0.2tmydkVxYDuROELojObooEvsxSIb2PjSqiFl57gsROw"
-    );
+        // PUBLIC anon key (read-only)
+        const db = createClient(
+            "https://cacsrtztwqghqghptije.supabase.co",
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNhY3NydHp0d3FnaHFnaHB0aWplIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk5NTQ2MzEsImV4cCI6MjA5NTUzMDYzMX0.2tmydkVxYDuROELojObooEvsxSIb2PjSqiFl57gsROw"
+        );
 
-    // Read ?app=xxx from URL
-    const params = new URLSearchParams(window.location.search);
-    const appName = params.get("app");
+        // Read ?app=xxx from URL
+        const params = new URLSearchParams(window.location.search);
+        const appName = params.get("app");
 
-    // Update title dynamically
-    const titleEl = document.getElementById("title");
-    if (appName) {
-        titleEl.textContent = `Available Offer Codes – ${appName}`;
-    } else {
-        titleEl.textContent = "Available Offer Codes";
-    }
-
-    async function loadCodes() {
-        const container = document.getElementById("codes");
-
-        if (!appName) {
-            container.textContent = "No app specified. Add ?app=yourAppName to the URL.";
-            return;
+        // Update title dynamically
+        const titleEl = document.getElementById("title");
+        if (appName) {
+            titleEl.textContent = `Available Offer Codes – ${appName}`;
+        } else {
+            titleEl.textContent = "Available Offer Codes";
         }
 
-        const { data, error } = await db
-            .from("offer_codes")
-            .select("*")
-            .eq("app", appName)
-            .eq("visible", true)
-            .eq("used", false);
-
-        if (error) {
-            container.textContent = "Error loading codes.";
-            return;
+        // ⭐ Get selected platform (default: ios)
+        function getPlatform() {
+            return document.querySelector('input[name="platform"]:checked').value;
         }
 
-        if (!data || data.length === 0) {
-            container.textContent = "No codes available.";
-            return;
-        }
-
-        container.innerHTML = "";
-
-        data.forEach(item => {
-            const div = document.createElement("div");
-            div.className = "code-box";
-
-            const codeText = document.createElement("span");
-            codeText.textContent = item.code;
-
-            const btn = document.createElement("button");
-            btn.textContent = "Download";
-            btn.onclick = () => downloadCode(item.id, item.code);
-
-            div.appendChild(codeText);
-            div.appendChild(btn);
-            container.appendChild(div);
+        // ⭐ Reload codes when platform changes
+        document.querySelectorAll('input[name="platform"]').forEach(radio => {
+            radio.addEventListener("change", loadCodes);
         });
-    }
 
-    async function downloadCode(id, code) {
-        try {
-            const response = await fetch(
-                "https://cacsrtztwqghqghptije.supabase.co/functions/v1/mark-used",
-                {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ id })
-                }
-            );
+        async function loadCodes() {
+            const container = document.getElementById("codes");
 
-            if (!response.ok) {
-                const error = await response.text();
-                throw new Error(`Server error: ${error}`);
+            if (!appName) {
+                container.textContent = "No app specified. Add ?app=yourAppName to the URL.";
+                return;
             }
 
-            alert("Your code: " + code);
-            navigator.clipboard.writeText(code).catch(() => console.log("Clipboard copy failed"));
+            const platform = getPlatform();
 
-            loadCodes();
-        } catch (error) {
-            console.error("Error:", error);
-            alert("Failed to claim code. Please try again.");
+            // ⭐ Choose table based on platform
+            const table = platform === "ios" ? "offer_codes" : "offer_codes_android";
+
+            const { data, error } = await db
+                .from(table)
+                .select("*")
+                .eq("app", appName)
+                .eq("visible", true)
+                .eq("used", false);
+
+            if (error) {
+                container.textContent = "Error loading codes.";
+                return;
+            }
+
+            if (!data || data.length === 0) {
+                container.textContent = "No codes available.";
+                return;
+            }
+
+            container.innerHTML = "";
+
+            data.forEach(item => {
+                const div = document.createElement("div");
+                div.className = "code-box";
+
+                const codeText = document.createElement("span");
+                codeText.textContent = item.code;
+
+                const btn = document.createElement("button");
+                btn.textContent = "Download";
+                btn.onclick = () => downloadCode(item.id, item.code, platform);
+
+                div.appendChild(codeText);
+                div.appendChild(btn);
+                container.appendChild(div);
+            });
         }
-    }
 
-    loadCodes();
-    </script>
+        async function downloadCode(id, code, platform) {
+            try {
+                const response = await fetch(
+                    "https://cacsrtztwqghqghptije.supabase.co/functions/v1/mark-used",
+                    {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ id, platform })
+                    }
+                );
+
+                if (!response.ok) {
+                    const error = await response.text();
+                    throw new Error(`Server error: ${error}`);
+                }
+
+                alert("Your code: " + code);
+                navigator.clipboard.writeText(code).catch(() => console.log("Clipboard copy failed"));
+
+                loadCodes();
+            } catch (error) {
+                console.error("Error:", error);
+                alert("Failed to claim code. Please try again.");
+            }
+        }
+
+        loadCodes();</script>
 
 </body>
 </html>
