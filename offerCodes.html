@@ -29,7 +29,6 @@
             cursor: pointer;
         }
 
-        /* Platform selector */
         .platform-select {
             margin-bottom: 20px;
         }
@@ -39,7 +38,7 @@
 
     <h2 id="title">Available Offer Codes</h2>
 
-    <!-- ⭐ Platform selector -->
+    <!-- Platform selector -->
     <div class="platform-select">
         <label>
             <input type="radio" name="platform" value="ios" checked>
@@ -70,16 +69,14 @@
         const titleEl = document.getElementById("title");
         if (appName) {
             titleEl.textContent = `Available Offer Codes – ${appName}`;
-        } else {
-            titleEl.textContent = "Available Offer Codes";
         }
 
-        // ⭐ Get selected platform (default: ios)
+        // Get selected platform
         function getPlatform() {
-            return "android";
+            return document.querySelector('input[name="platform"]:checked').value;
         }
 
-        // ⭐ Reload codes when platform changes
+        // Reload when platform changes
         document.querySelectorAll('input[name="platform"]').forEach(radio => {
             radio.addEventListener("change", loadCodes);
         });
@@ -93,14 +90,14 @@
             }
 
             const platform = getPlatform();
-
-            // ⭐ Choose table based on platform
-            
-            const table = "offer_codes_android";
+            const table = platform === "ios" ? "offer_codes" : "offer_codes_android";
 
             const { data, error } = await db
                 .from(table)
                 .select("*")
+                .eq("app", appName)
+                .eq("visible", true)
+                .eq("used", false);
 
             if (error) {
                 container.textContent = "Error loading codes.";
