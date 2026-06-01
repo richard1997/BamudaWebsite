@@ -102,8 +102,6 @@
                 .from(table)
                 .select("*")
                 .eq("app", appName)
-                .eq("visible", true)
-
 
             if (error) {
                 container.textContent = "Error loading codes.";
