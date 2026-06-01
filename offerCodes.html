@@ -101,7 +101,6 @@
             const { data, error } = await db
                 .from(table)
                 .select("*")
-                .eq("app", appName)
 
             if (error) {
                 container.textContent = "Error loading codes.";
